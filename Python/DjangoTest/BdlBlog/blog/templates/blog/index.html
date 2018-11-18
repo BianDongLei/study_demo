@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Django Web</title>
+</head>
+<body>
+<h1>{{article.title}}</h1>
+<br>
+<h3><span name="content">{{article.content}}</span></h3>
+<script>
+    $("span[name='content']").each(function(){
+        var text = $(this).html()
+        var reg = new RegExp("\n", "g")
+        $(this).html(text.replace(reg, '<br>'))
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交结果</title>
+</head>
+<body>
+{% if name is None or name == "" %}
+    <h2>您未提交任何信息！</h2>
+{% else %}
+    <h1>个人信息：</h1>
+    <h3>姓名：{{ name }}</h3>
+    <h3>邮箱：</h3>
+    {% for emaildetail in emails %}
+        <h4>    {{ emaildetail }}</h4>
+    {% endfor %}
+    <h3>联系地址：</h3>
+    {% for addressdetail in addresses %}
+        <h4>    {{ addressdetail }}</h4>
+    {% endfor %}
+    <br>
+    <h1>您({{ name }})已经存在留言{{ num }}条，具体留言如下：</h1>
+    <br>
+    {% for msg in filter_msg %}
+        <h3>留言：{{ msg.leave_msg }}</h3>
+        <h4>留言时间：{{ msg.update_time }}</h4>
+        <br>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

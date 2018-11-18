@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>正在编辑：{{ article.title }}</h1>
+    <form action="action/" method="post">
+        {% csrf_token %}
+        <!--由于Django的安全机制，所有需要提交表单的网页都需要添加 {% csrf_token %}-->
+        <label>
+            <input type="text" name="title" style="width:800px;height:25px;" value="{{ article.title }}"/>
+        </label>
+        <br>
+        <label>
+            <textarea type="text" name="content" style="width:800px;height:600px;">{{ article.content }}</textarea>
+        </label>
+        <br>
+        <input type="submit" style="width:800px;height:25px;" value="提交">
+    </form>
+</body>
+</html>
